@@ -23,12 +23,13 @@ defmodule SaveTheFridge.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {SaveTheFridge, []},
-     applications: [:logger, :elixir_ale]]
+     applications: [:logger, :elixir_ale, :nerves_interim_wifi]]
   end
 
   def deps do
     [{:nerves, "~> 0.3.4"},
-     {:elixir_ale, "~> 0.5.5"}]
+     {:elixir_ale, "~> 0.5.5"},
+     {:nerves_interim_wifi, "~> 0.1.0"}]
   end
 
   def system(target) do
