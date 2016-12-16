@@ -5,6 +5,14 @@
 # is restricted to this project.
 use Mix.Config
 
+config :nerves_interim_wifi,
+  regulatory_domain: "US"
+
+config :save_the_fridge, :wifi,
+  ssid: System.get_env("WIFI_SSID"),
+  key_mgmt: :"WPA-PSK",
+  psk: System.get_env("WIFI_PASSWORD")
+
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations

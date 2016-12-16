@@ -6,6 +6,8 @@ defmodule SaveTheFridge do
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
+    Nerves.InterimWiFi.setup "wlan0", wifi_config()
+
     # Define workers and child supervisors to be supervised
     children = [
       worker(IrBeamWorker, [])
@@ -18,4 +20,7 @@ defmodule SaveTheFridge do
     Supervisor.start_link(children, opts)
   end
 
+  defp wifi_config do
+    Application.get_env(:save_the_fridge, :wifi)
+  end
 end
