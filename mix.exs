@@ -30,7 +30,8 @@ defmodule SaveTheFridge.Mixfile do
     [{:nerves, "~> 0.3.4"},
      {:elixir_ale, "~> 0.5.5"},
      {:nerves_interim_wifi, "~> 0.1.0"},
-     {:fridge, github: "ruanpienaar/SaveTheFridge"} 
+     {:nerves_networking, github: "nerves-project/nerves_networking"},
+     {:fridge, github: "ruanpienaar/SaveTheFridge"}
     ]
   end
 
