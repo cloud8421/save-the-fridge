@@ -3,6 +3,8 @@ defmodule IrBeamWorker do
 
   @ir_in 4
 
+  @led_delay 2000
+
   def start_link do
     GenServer.start_link(__MODULE__, [])
   end
@@ -17,13 +19,28 @@ defmodule IrBeamWorker do
         build_event(:rising)
     end
     broadcast(evt)
-    {:ok, :ignored}
+    case evt.action do
+      :close ->
+        ref = Process.send_after(Led, :turn_off, 0)
+        {:ok, ref}
+      :open  ->
+        ref = Process.send_after(Led, :turn_on, 0)
+        {:ok, ref}
+    end
   end
 
-  def handle_info({:gpio_interrupt, @ir_in, edge}, state) do
-    build_event(edge)
-    |> broadcast
-    {:noreply, state}
+  def handle_info({:gpio_interrupt, @ir_in, edge}, ref) do
+    evt = build_event(edge)
+    broadcast(evt)
+    case evt.action do
+      :open ->
+        ref = Process.send_after(Led, :turn_on, @led_delay)
+        {:noreply, ref}
+      :close ->
+        Process.cancel_timer(ref)
+        new_ref = Process.send_after(Led, :turn_off, 0)
+        {:noreply, new_ref}
+    end
   end
 
   defp build_event(edge) do

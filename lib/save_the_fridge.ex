@@ -10,6 +10,7 @@ defmodule SaveTheFridge do
 
     # Define workers and child supervisors to be supervised
     children = [
+      worker(Led, []),
       worker(IrBeamWorker, [])
       # worker(SaveTheFridge.Worker, [arg1, arg2, arg3]),
     ]
