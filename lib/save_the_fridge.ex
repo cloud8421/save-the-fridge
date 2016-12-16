@@ -8,6 +8,8 @@ defmodule SaveTheFridge do
 
     Nerves.InterimWiFi.setup "wlan0", wifi_config()
 
+    :fridge.start()
+
     # Define workers and child supervisors to be supervised
     children = [
       worker(Led, []),

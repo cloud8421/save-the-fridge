@@ -6,7 +6,7 @@
   "elixir_make": {:hex, :elixir_make, "0.4.0", "992f38fabe705bb45821a728f20914c554b276838433349d4f2341f7a687cddf", [:mix], []},
   "erlware_commons": {:hex, :erlware_commons, "0.22.0", "051bed79a34e66678c1cbeebc7b66360c827d081a0c5e2528878011e31ddcdca", [:rebar3], [{:cf, "0.2.2", [hex: :cf, optional: false]}]},
   "exrm": {:hex, :exrm, "1.0.8", "5aa8990cdfe300282828b02cefdc339e235f7916388ce99f9a1f926a9271a45d", [:mix], [{:relx, "~> 3.5", [hex: :relx, optional: false]}]},
-  "fridge": {:git, "https://github.com/ruanpienaar/SaveTheFridge.git", "23cce99d1d85d60b52cbfe4c9f3c6451eb819a6c", []},
+  "fridge": {:git, "https://github.com/ruanpienaar/SaveTheFridge.git", "41d664abfd92a67ca40f820dadc106b3dcfc1108", []},
   "getopt": {:hex, :getopt, "0.8.2", "b17556db683000ba50370b16c0619df1337e7af7ecbf7d64fbf8d1d6bce3109b", [:rebar], []},
   "gproc": {:git, "https://github.com/uwiger/gproc", "01c8fbfdd5e4701e8e4b57b0c8279872f9574b0b", [branch: "master"]},
   "jsx": {:git, "https://github.com/talentdeficit/jsx.git", "aaf915e173d0ea7e1201c0edd4930dc6c3cd179d", [branch: "master"]},

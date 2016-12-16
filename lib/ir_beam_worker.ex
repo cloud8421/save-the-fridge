@@ -55,7 +55,7 @@ defmodule IrBeamWorker do
   defp broadcast(evt) do
     try do
       IO.inspect evt
-      GenEvent.notify(:collector, evt)
+      :fridge_notifier.action(evt)
     rescue
       e -> IO.puts "Notify failed: #{inspect e}"
     end
