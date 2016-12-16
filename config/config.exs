@@ -11,7 +11,7 @@ config :nerves_interim_wifi,
 config :save_the_fridge, :wifi,
   ssid: System.get_env("WIFI_SSID"),
   key_mgmt: :"WPA-PSK",
-  psk: System.get_env("WIFI_PASSWORD")
+  psk: System.get_env("WIFI_PSK")
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
